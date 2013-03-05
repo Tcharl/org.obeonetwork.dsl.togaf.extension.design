@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+  <extension point="fr.obeo.dsl.viewpoint.componentization">
+    <component class="org.obeonetwork.dsl.togaf.extension.design.Activator"
+               id="org.obeonetwork.dsl.togaf.extension.design"
+	       name="togaf.extension">
+    </component>
+  </extension>
+  <plugin>
+   <extension point="fr.obeo.smartea.modeler.newViewpoint">
+		<viewpoint name="togaf.extension">
+		</viewpoint>
+	</extension>
+</plugin>
+</plugin>
