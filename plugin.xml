@@ -7,10 +7,8 @@
 	       name="togaf.extension">
     </component>
   </extension>
-  <plugin>
-   <extension point="fr.obeo.smartea.modeler.newViewpoint">
+  <!-- <extension point="fr.obeo.smartea.modeler.newViewpoint">
 		<viewpoint name="togaf.extension">
 		</viewpoint>
-	</extension>
-</plugin>
+	</extension>-->
 </plugin>

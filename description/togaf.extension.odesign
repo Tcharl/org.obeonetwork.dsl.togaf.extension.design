@@ -794,7 +794,7 @@
       <defaultLayer name="Default">
         <containerMappings name="container" semanticCandidatesExpression="&lt;%self%>" domainClass="TagContainer">
           <subContainerMappings name="subContainers" label="Sub Containers" semanticCandidatesExpression="&lt;%subContainers%>" domainClass="TagContainer" reusedContainerMappings="//@ownedViewpoints[name='business-extension-container']/@ownedRepresentations[name='categorisationDesObjetsMetier']/@defaultLayer/@containerMappings[name='container']/@subContainerMappings[name='subContainers']">
-            <subContainerMappings name="labels" semanticCandidatesExpression="&lt;%tags%>" domainClass="Tag" dropDescriptions="//@ownedViewpoints[name='business-extension-container']/@ownedRepresentations[name='categorisationDesObjetsMetier']/@defaultLayer/@toolSections.0/@ownedTools[name='dropElement']" listContainer="true">
+            <subContainerMappings name="labels" pasteDescriptions="//@ownedViewpoints[name='business-extension-container']/@ownedRepresentations[name='categorisationDesObjetsMetier']/@defaultLayer/@toolSections.0/@ownedTools[name='pasteBiz']" semanticCandidatesExpression="&lt;%tags%>" domainClass="Tag" dropDescriptions="//@ownedViewpoints[name='business-extension-container']/@ownedRepresentations[name='categorisationDesObjetsMetier']/@defaultLayer/@toolSections.0/@ownedTools[name='dropElement']" listContainer="true">
               <subNodeMappings name="Elements" semanticCandidatesExpression="&lt;%taggedElements[eContainer().eClass().name == &quot;BusinessArchitecture&quot;]%>" domainClass="EObject">
                 <style xsi:type="style:LozengeNodeDescription" resizeKind="NSEW">
                   <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -812,7 +812,7 @@
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             </style>
           </subContainerMappings>
-          <subContainerMappings name="containerlabels" semanticCandidatesExpression="&lt;%tags%>" domainClass="Tag" dropDescriptions="//@ownedViewpoints[name='business-extension-container']/@ownedRepresentations[name='categorisationDesObjetsMetier']/@defaultLayer/@toolSections.0/@ownedTools[name='dropElement']" listContainer="true">
+          <subContainerMappings name="containerlabels" pasteDescriptions="//@ownedViewpoints[name='business-extension-container']/@ownedRepresentations[name='categorisationDesObjetsMetier']/@defaultLayer/@toolSections.0/@ownedTools[name='pasteBiz']" semanticCandidatesExpression="&lt;%tags%>" domainClass="Tag" dropDescriptions="//@ownedViewpoints[name='business-extension-container']/@ownedRepresentations[name='categorisationDesObjetsMetier']/@defaultLayer/@toolSections.0/@ownedTools[name='dropElement']" listContainer="true">
             <subNodeMappings name="containerElements" semanticCandidatesExpression="&lt;%taggedElements[eContainer().eClass().name == &quot;BusinessArchitecture&quot;]%>" domainClass="EObject">
               <style xsi:type="style:LozengeNodeDescription" resizeKind="NSEW">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -838,9 +838,9 @@
             <newViewContainer name="newContainerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$oldSemanticContainer%>">
-                <subModelOperations xsi:type="tool:Unset" featureName="ownedElements" elementExpression="&lt;%$element%>"/>
+                <subModelOperations xsi:type="tool:Unset" featureName="taggedElements" elementExpression="&lt;%$element%>"/>
                 <subModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$newSemanticContainer%>">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="ownedElements" valueExpression="&lt;%$element%>"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="taggedElements" valueExpression="&lt;%$element%>"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -855,6 +855,17 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
+          <ownedTools xsi:type="tool:PasteDescription" name="pasteBiz" forceRefresh="true">
+            <container name="container"/>
+            <containerView name="containerView"/>
+            <copiedView name="copiedView"/>
+            <copiedElement name="copiedElement"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$container%>">
+                <subModelOperations xsi:type="tool:SetValue" featureName="taggedElements" valueExpression="&lt;%$copiedElement%>"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>
@@ -865,7 +876,7 @@
       <defaultLayer name="Default">
         <containerMappings name="container" semanticCandidatesExpression="&lt;%self%>" domainClass="TagContainer">
           <subContainerMappings name="subContainers" label="Sub Containers" semanticCandidatesExpression="&lt;%subContainers%>" domainClass="TagContainer" reusedContainerMappings="//@ownedViewpoints[name='data-extension-container']/@ownedRepresentations[name='categorisationDesObjetsDonnees']/@defaultLayer/@containerMappings[name='container']/@subContainerMappings[name='subContainers']">
-            <subContainerMappings name="labels" semanticCandidatesExpression="&lt;%tags%>" domainClass="Tag" dropDescriptions="//@ownedViewpoints[name='data-extension-container']/@ownedRepresentations[name='categorisationDesObjetsDonnees']/@defaultLayer/@toolSections.0/@ownedTools[name='dropElement']" listContainer="true">
+            <subContainerMappings name="labels" pasteDescriptions="//@ownedViewpoints[name='data-extension-container']/@ownedRepresentations[name='categorisationDesObjetsDonnees']/@defaultLayer/@toolSections.0/@ownedTools[name='pasteData']" semanticCandidatesExpression="&lt;%tags%>" domainClass="Tag" dropDescriptions="//@ownedViewpoints[name='data-extension-container']/@ownedRepresentations[name='categorisationDesObjetsDonnees']/@defaultLayer/@toolSections.0/@ownedTools[name='dropElement']" listContainer="true">
               <subNodeMappings name="Elements" semanticCandidatesExpression="&lt;%taggedElements[eContainer().eClass().name == &quot;DataArchitecture&quot;]%>" domainClass="EObject">
                 <style xsi:type="style:LozengeNodeDescription" resizeKind="NSEW">
                   <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -883,7 +894,7 @@
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             </style>
           </subContainerMappings>
-          <subContainerMappings name="containerlabels" semanticCandidatesExpression="&lt;%tags%>" domainClass="Tag" dropDescriptions="//@ownedViewpoints[name='data-extension-container']/@ownedRepresentations[name='categorisationDesObjetsDonnees']/@defaultLayer/@toolSections.0/@ownedTools[name='dropElement']" listContainer="true">
+          <subContainerMappings name="containerlabels" pasteDescriptions="//@ownedViewpoints[name='data-extension-container']/@ownedRepresentations[name='categorisationDesObjetsDonnees']/@defaultLayer/@toolSections.0/@ownedTools[name='pasteData']" semanticCandidatesExpression="&lt;%tags%>" domainClass="Tag" dropDescriptions="//@ownedViewpoints[name='data-extension-container']/@ownedRepresentations[name='categorisationDesObjetsDonnees']/@defaultLayer/@toolSections.0/@ownedTools[name='dropElement']" listContainer="true">
             <subNodeMappings name="containerElements" semanticCandidatesExpression="&lt;%taggedElements[eContainer().eClass().name == &quot;DataArchitecture&quot;]%>" domainClass="EObject">
               <style xsi:type="style:LozengeNodeDescription" resizeKind="NSEW">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -909,9 +920,9 @@
             <newViewContainer name="newContainerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$oldSemanticContainer%>">
-                <subModelOperations xsi:type="tool:Unset" featureName="ownedElements" elementExpression="&lt;%$element%>"/>
+                <subModelOperations xsi:type="tool:Unset" featureName="taggedElements" elementExpression="&lt;%$element%>"/>
                 <subModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$newSemanticContainer%>">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="ownedElements" valueExpression="&lt;%$element%>"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="taggedElements" valueExpression="&lt;%$element%>"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -923,6 +934,17 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$container%>">
                 <subModelOperations xsi:type="tool:SetValue" featureName="taggedElements" valueExpression="&lt;%$element%>"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:PasteDescription" name="pasteData" forceRefresh="true">
+            <container name="container"/>
+            <containerView name="containerView"/>
+            <copiedView name="copiedView"/>
+            <copiedElement name="copiedElement"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$container%>">
+                <subModelOperations xsi:type="tool:SetValue" featureName="taggedElements" valueExpression="&lt;%$copiedElement%>"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -1041,7 +1063,7 @@
             </style>
           </conditionnalStyles>
         </containerMappings>
-        <containerMappings name="relatedUpdatedThroughOrAccessedByServicesExternal" labelDirectEdit="//@ownedViewpoints[name='data-extension-container']/@ownedRepresentations[name='dataServices-container']/@defaultLayer/@toolSections.0/@ownedTools[name='rename']" semanticCandidatesExpression="&lt;%(tags.taggedElements.filter(&quot;DataEntity&quot;).isUpdatedThroughServices + tags.taggedElements.filter(&quot;DataEntity&quot;).isAccessedByServices) -  (tags.taggedElements.filter(&quot;Service&quot;))%>" domainClass="contentfwk.Service">
+        <containerMappings name="relatedUpdatedThroughOrAccessedByServicesExternal" labelDirectEdit="//@ownedViewpoints[name='data-extension-container']/@ownedRepresentations[name='dataServices-container']/@defaultLayer/@toolSections.0/@ownedTools[name='rename']" semanticCandidatesExpression="&lt;%(tags.taggedElements.filter(&quot;DataEntity&quot;).isUpdatedThroughServices + tags.taggedElements.filter(&quot;DataEntity&quot;).isAccessedByServices).nMinimize() -  (tags.taggedElements.filter(&quot;Service&quot;))%>" domainClass="contentfwk.Service">
           <subContainerMappings name="relatedUpdatedThroughOrAccessedByServicesExternalLvl1" labelDirectEdit="//@ownedViewpoints[name='data-extension-container']/@ownedRepresentations[name='dataServices-container']/@defaultLayer/@toolSections.0/@ownedTools[name='rename']" semanticCandidatesExpression="&lt;%~decomposesServices[~taggedElements.containers.nContains($containerView.eContainer(&quot;DSemanticDiagram&quot;).target)]%>" domainClass="contentfwk.Service" reusedContainerMappings="//@ownedViewpoints[name='data-extension-container']/@ownedRepresentations[name='dataServices-container']/@defaultLayer/@containerMappings[name='relatedUpdatedThroughOrAccessedByServicesExternal']/@subContainerMappings[name='relatedUpdatedThroughOrAccessedByServicesExternalLvl1']">
             <style xsi:type="style:FlatContainerStyleDescription">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -1350,66 +1372,6 @@
       <ownedLineMappings name="lineServices" domainClass="InformationSystemService" semanticCandidatesExpression="&lt;%informationSystemServices%>" headerLabelExpression="&lt;%name%>"/>
       <ownedColumnMappings name="columnService" headerLabelExpression="&lt;%name%>" domainClass="InformationSystemService" semanticCandidatesExpression="&lt;%informationSystemServices%>"/>
       <intersection name="lineServiceVsColumnService" lineMapping="//@ownedViewpoints[name='application-extension']/@ownedRepresentations[name='ServiceInteractionMatrix']/@ownedLineMappings[name='lineServices']" columnMapping="//@ownedViewpoints[name='application-extension']/@ownedRepresentations[name='ServiceInteractionMatrix']/@ownedColumnMappings.0" labelExpression="consomme" columnFinderExpression="&lt;%consumesServices%>"/>
-    </ownedRepresentations>
-    <ownedRepresentations xsi:type="description:DiagramDescription" name="Categorisation Applications" domainClass="ApplicationArchitecture">
-      <defaultLayer name="Default">
-        <containerMappings name="SICible" semanticCandidatesExpression="&lt;%getTagsRoot().tagContainers[name==&quot;Activit&#xe9;s en cours&quot;].subContainers%>" domainClass="TagContainer">
-          <subContainerMappings name="Projet" semanticCandidatesExpression="&lt;%subContainers%>" domainClass="TagContainer">
-            <subContainerMappings name="Planning" semanticCandidatesExpression="&lt;%tags%>" domainClass="Tag" dropDescriptions="//@ownedViewpoints[name='application-extension']/@ownedRepresentations[name='Categorisation%20Applications']/@defaultLayer/@toolSections.0/@ownedTools[name='']">
-              <subContainerMappings name="Applications" semanticCandidatesExpression="&lt;%taggedElements.filter(&quot;LogicalApplicationComponent&quot;)%>" domainClass="LogicalApplicationComponent">
-                <style xsi:type="style:FlatContainerStyleDescription">
-                  <borderColor xsi:type="description:UserFixedColor" href="../../org.obeonetwork.dsl.togaf.design/description/togaf.odesign#//@userColorsPalettes[name='UserColors']/@entries[name='LogicalApplicationComponentBorder']"/>
-                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                  <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-                  <foregroundColor xsi:type="description:UserFixedColor" href="../../org.obeonetwork.dsl.togaf.design/description/togaf.odesign#//@userColorsPalettes[name='UserColors']/@entries[name='LogicalApplicationComponent']"/>
-                </style>
-              </subContainerMappings>
-              <style xsi:type="style:FlatContainerStyleDescription" foregroundColor="//@userColorsPalettes[name='Specific%20palette']/@entries[name='LabelColor']">
-                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-              </style>
-            </subContainerMappings>
-            <style xsi:type="style:FlatContainerStyleDescription" foregroundColor="//@userColorsPalettes[name='Specific%20palette']/@entries[name='ContainerColor']">
-              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-            </style>
-          </subContainerMappings>
-          <style xsi:type="style:FlatContainerStyleDescription">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-          </style>
-        </containerMappings>
-        <toolSections name="Palette Applicative">
-          <ownedTools xsi:type="tool:SelectionWizardDescription" name="Select Existing Application" forceRefresh="true" candidatesExpression="&lt;%$container.getRootElement().architectures.filter(&quot;ApplicationArchitecture&quot;).logicalApplicationComponents%>" multiple="true">
-            <element name="element"/>
-            <containerView name="containerView"/>
-            <container name="container"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%container%>">
-                <subModelOperations xsi:type="tool:SetValue" featureName="taggedElements" valueExpression="&lt;%$element%>"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:ContainerDropDescription" mappings="//@ownedViewpoints[name='application-extension']/@ownedRepresentations[name='Categorisation%20Applications']/@defaultLayer/@containerMappings[name='SICible']/@subContainerMappings[name='Projet']/@subContainerMappings[name='Planning']/@subContainerMappings[name='Applications']">
-            <oldContainer name="oldSemanticContainer"/>
-            <newContainer name="newSemanticContainer"/>
-            <element name="element"/>
-            <newViewContainer name="newContainerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$oldSemanticContainer%>">
-                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$newSemanticContainer%>">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="ownedElements" valueExpression="&lt;%$element%>"/>
-                </subModelOperations>
-                <subModelOperations xsi:type="tool:Unset" featureName="ownedElements" elementExpression="&lt;%$element%>"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-        </toolSections>
-      </defaultLayer>
     </ownedRepresentations>
     <ownedRepresentations xsi:type="description_1:CrossTableDescription" name="Implementation de  services" domainClass="ApplicationArchitecture">
       <ownedLineMappings name="Applications" domainClass="LogicalApplicationComponent" semanticCandidatesExpression="&lt;%logicalApplicationComponents%>" headerLabelExpression="&lt;%name%>"/>
@@ -1966,7 +1928,7 @@
       <defaultLayer name="Default">
         <containerMappings name="container" semanticCandidatesExpression="&lt;%self%>" domainClass="TagContainer">
           <subContainerMappings name="subContainers" label="Sub Containers" semanticCandidatesExpression="&lt;%subContainers%>" domainClass="TagContainer" reusedContainerMappings="//@ownedViewpoints[name='application-extension-container']/@ownedRepresentations[name='categorisationDesObjetsApplicatifs']/@defaultLayer/@containerMappings[name='container']/@subContainerMappings[name='subContainers']">
-            <subContainerMappings name="labels" semanticCandidatesExpression="&lt;%tags%>" domainClass="Tag" dropDescriptions="//@ownedViewpoints[name='application-extension-container']/@ownedRepresentations[name='categorisationDesObjetsApplicatifs']/@defaultLayer/@toolSections.0/@ownedTools[name='dropElement']" listContainer="true">
+            <subContainerMappings name="labels" pasteDescriptions="//@ownedViewpoints[name='application-extension-container']/@ownedRepresentations[name='categorisationDesObjetsApplicatifs']/@defaultLayer/@toolSections.0/@ownedTools[name='pasteApplication']" semanticCandidatesExpression="&lt;%tags%>" domainClass="Tag" dropDescriptions="//@ownedViewpoints[name='application-extension-container']/@ownedRepresentations[name='categorisationDesObjetsApplicatifs']/@defaultLayer/@toolSections.0/@ownedTools[name='dropElement']" listContainer="true">
               <subNodeMappings name="Elements" semanticCandidatesExpression="&lt;%taggedElements[eContainer().eClass().name == &quot;ApplicationArchitecture&quot;]%>" domainClass="EObject">
                 <style xsi:type="style:LozengeNodeDescription" resizeKind="NSEW">
                   <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -1984,7 +1946,7 @@
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             </style>
           </subContainerMappings>
-          <subContainerMappings name="containerlabels" semanticCandidatesExpression="&lt;%tags%>" domainClass="Tag" dropDescriptions="//@ownedViewpoints[name='application-extension-container']/@ownedRepresentations[name='categorisationDesObjetsApplicatifs']/@defaultLayer/@toolSections.0/@ownedTools[name='dropElement']" listContainer="true">
+          <subContainerMappings name="containerlabels" pasteDescriptions="//@ownedViewpoints[name='application-extension-container']/@ownedRepresentations[name='categorisationDesObjetsApplicatifs']/@defaultLayer/@toolSections.0/@ownedTools[name='pasteApplication']" semanticCandidatesExpression="&lt;%tags%>" domainClass="Tag" dropDescriptions="//@ownedViewpoints[name='application-extension-container']/@ownedRepresentations[name='categorisationDesObjetsApplicatifs']/@defaultLayer/@toolSections.0/@ownedTools[name='dropElement']" listContainer="true">
             <subNodeMappings name="containerElements" semanticCandidatesExpression="&lt;%taggedElements[eContainer().eClass().name == &quot;ApplicationArchitecture&quot;]%>" domainClass="EObject">
               <style xsi:type="style:LozengeNodeDescription" resizeKind="NSEW">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -2010,9 +1972,9 @@
             <newViewContainer name="newContainerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$oldSemanticContainer%>">
-                <subModelOperations xsi:type="tool:Unset" featureName="ownedElements" elementExpression="&lt;%$element%>"/>
+                <subModelOperations xsi:type="tool:Unset" featureName="taggedElements" elementExpression="&lt;%$element%>"/>
                 <subModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$newSemanticContainer%>">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="ownedElements" valueExpression="&lt;%$element%>"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="taggedElements" valueExpression="&lt;%$element%>"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -2024,6 +1986,17 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$container%>">
                 <subModelOperations xsi:type="tool:SetValue" featureName="taggedElements" valueExpression="&lt;%$element%>"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:PasteDescription" name="pasteApplication" forceRefresh="true">
+            <container name="container"/>
+            <containerView name="containerView"/>
+            <copiedView name="copiedView"/>
+            <copiedElement name="copiedElement"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$container%>">
+                <subModelOperations xsi:type="tool:SetValue" featureName="taggedElements" valueExpression="&lt;%$copiedElement%>"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -2053,6 +2026,14 @@
           <mask mask="{0}"/>
         </directEdit>
       </intersection>
+    </ownedRepresentations>
+    <ownedRepresentations xsi:type="description_1:CrossTableDescription" name="ApplicationInteractionMatrix-container" label="Application Interaction Matrix Container" domainClass="TagContainer">
+      <ownedLineMappings name="lineApplications" domainClass="contentfwk.LogicalApplicationComponent" semanticCandidatesExpression="&lt;%tags.taggedElements.filter(&quot;LogicalApplicationComponent&quot;)%>">
+        <ownedSubLines name="lineInformationSystemServices" domainClass="contentfwk.InformationSystemService" semanticCandidatesExpression="&lt;%implementsServices%>"/>
+      </ownedLineMappings>
+      <ownedColumnMappings name="columnServices" headerLabelExpression="&lt;%isRealizedThroughLogicalApplicationComponent.name.concat(&quot; - &quot;).concat(name)%>" domainClass="contentfwk.InformationSystemService" semanticCandidatesExpression="&lt;%tags.taggedElements.filter(&quot;InformationSystemService&quot;)%>"/>
+      <intersection name="appToServicesInteractions" lineMapping="//@ownedViewpoints[name='application-extension-container']/@ownedRepresentations[name='ApplicationInteractionMatrix-container']/@ownedLineMappings[name='lineApplications']" columnMapping="//@ownedViewpoints[name='application-extension-container']/@ownedRepresentations[name='ApplicationInteractionMatrix-container']/@ownedColumnMappings.0" labelExpression="&lt;-" columnFinderExpression="&lt;%communicatesWith.implementsServices + implementsServices.~consumesServices + implementsServices.providesEntities.isAccessedByServices%>"/>
+      <intersection name="serviceToDataToService" lineMapping="//@ownedViewpoints[name='application-extension-container']/@ownedRepresentations[name='ApplicationInteractionMatrix-container']/@ownedLineMappings[name='lineApplications']/@ownedSubLines[name='lineInformationSystemServices']" columnMapping="//@ownedViewpoints[name='application-extension-container']/@ownedRepresentations[name='ApplicationInteractionMatrix-container']/@ownedColumnMappings.0" labelExpression="&lt;%providesEntities.name.sep(&quot;; &quot;)%>" columnFinderExpression="&lt;%providesEntities.isAccessedByServices%>"/>
     </ownedRepresentations>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.togaf.design.services.TagsService"/>
   </ownedViewpoints>
@@ -3562,7 +3543,7 @@
       <defaultLayer name="Default">
         <containerMappings name="container" semanticCandidatesExpression="&lt;%self%>" domainClass="TagContainer">
           <subContainerMappings name="subContainers" label="Sub Containers" semanticCandidatesExpression="&lt;%subContainers%>" domainClass="TagContainer" reusedContainerMappings="//@ownedViewpoints[name='technology-extension-container']/@ownedRepresentations[name='categorisationDesObjetsTechniques']/@defaultLayer/@containerMappings[name='container']/@subContainerMappings[name='subContainers']">
-            <subContainerMappings name="labels" semanticCandidatesExpression="&lt;%tags%>" domainClass="Tag" dropDescriptions="//@ownedViewpoints[name='application-extension-container']/@ownedRepresentations[name='categorisationDesObjetsApplicatifs']/@defaultLayer/@toolSections.0/@ownedTools[name='dropElement'] //@ownedViewpoints[name='technology-extension-container']/@ownedRepresentations[name='categorisationDesObjetsTechniques']/@defaultLayer/@toolSections.0/@ownedTools[name='dropElement']" listContainer="true">
+            <subContainerMappings name="labels" pasteDescriptions="//@ownedViewpoints[name='technology-extension-container']/@ownedRepresentations[name='categorisationDesObjetsTechniques']/@defaultLayer/@toolSections.0/@ownedTools[name='pasteTech']" semanticCandidatesExpression="&lt;%tags%>" domainClass="Tag" dropDescriptions="//@ownedViewpoints[name='application-extension-container']/@ownedRepresentations[name='categorisationDesObjetsApplicatifs']/@defaultLayer/@toolSections.0/@ownedTools[name='dropElement'] //@ownedViewpoints[name='technology-extension-container']/@ownedRepresentations[name='categorisationDesObjetsTechniques']/@defaultLayer/@toolSections.0/@ownedTools[name='dropElement']" listContainer="true">
               <subNodeMappings name="Elements" semanticCandidatesExpression="&lt;%taggedElements[eContainer().eClass().name == &quot;TechnologyArchitecture&quot;]%>" domainClass="EObject">
                 <style xsi:type="style:LozengeNodeDescription" resizeKind="NSEW">
                   <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -3580,7 +3561,7 @@
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             </style>
           </subContainerMappings>
-          <subContainerMappings name="containerlabels" semanticCandidatesExpression="&lt;%tags%>" domainClass="Tag" dropDescriptions="//@ownedViewpoints[name='application-extension-container']/@ownedRepresentations[name='categorisationDesObjetsApplicatifs']/@defaultLayer/@toolSections.0/@ownedTools[name='dropElement'] //@ownedViewpoints[name='technology-extension-container']/@ownedRepresentations[name='categorisationDesObjetsTechniques']/@defaultLayer/@toolSections.0/@ownedTools[name='dropElement']" listContainer="true">
+          <subContainerMappings name="containerlabels" pasteDescriptions="//@ownedViewpoints[name='technology-extension-container']/@ownedRepresentations[name='categorisationDesObjetsTechniques']/@defaultLayer/@toolSections.0/@ownedTools[name='pasteTech']" semanticCandidatesExpression="&lt;%tags%>" domainClass="Tag" dropDescriptions="//@ownedViewpoints[name='application-extension-container']/@ownedRepresentations[name='categorisationDesObjetsApplicatifs']/@defaultLayer/@toolSections.0/@ownedTools[name='dropElement'] //@ownedViewpoints[name='technology-extension-container']/@ownedRepresentations[name='categorisationDesObjetsTechniques']/@defaultLayer/@toolSections.0/@ownedTools[name='dropElement']" listContainer="true">
             <subNodeMappings name="containerElements" semanticCandidatesExpression="&lt;%taggedElements[eContainer().eClass().name == &quot;TechnologyArchitecture&quot;]%>" domainClass="EObject">
               <style xsi:type="style:LozengeNodeDescription" resizeKind="NSEW">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -3606,9 +3587,9 @@
             <newViewContainer name="newContainerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$oldSemanticContainer%>">
-                <subModelOperations xsi:type="tool:Unset" featureName="ownedElements" elementExpression="&lt;%$element%>"/>
+                <subModelOperations xsi:type="tool:Unset" featureName="taggedElements" elementExpression="&lt;%$element%>"/>
                 <subModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$newSemanticContainer%>">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="ownedElements" valueExpression="&lt;%$element%>"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="taggedElements" valueExpression="&lt;%$element%>"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -3623,6 +3604,17 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
+          <ownedTools xsi:type="tool:PasteDescription" name="pasteTech" forceRefresh="true">
+            <container name="container"/>
+            <containerView name="containerView"/>
+            <copiedView name="copiedView"/>
+            <copiedElement name="copiedElement"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$container%>">
+                <subModelOperations xsi:type="tool:SetValue" featureName="taggedElements" valueExpression="&lt;%$copiedElement%>"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>
@@ -3633,7 +3625,7 @@
       <defaultLayer name="Default">
         <containerMappings name="container" semanticCandidatesExpression="&lt;%self%>" domainClass="TagContainer">
           <subContainerMappings name="subContainers" label="Sub Containers" semanticCandidatesExpression="&lt;%subContainers%>" domainClass="TagContainer" reusedContainerMappings="//@ownedViewpoints[name='strategic-extension-container']/@ownedRepresentations[name='categorisationDesObjetsStrategiques']/@defaultLayer/@containerMappings[name='container']/@subContainerMappings[name='subContainers']">
-            <subContainerMappings name="labels" semanticCandidatesExpression="&lt;%labels%>" domainClass="Tag" dropDescriptions="//@ownedViewpoints[name='application-extension-container']/@ownedRepresentations[name='categorisationDesObjetsApplicatifs']/@defaultLayer/@toolSections.0/@ownedTools[name='dropElement'] //@ownedViewpoints[name='strategic-extension-container']/@ownedRepresentations[name='categorisationDesObjetsStrategiques']/@defaultLayer/@toolSections.0/@ownedTools[name='dropElement']" listContainer="true">
+            <subContainerMappings name="labels" pasteDescriptions="//@ownedViewpoints[name='strategic-extension-container']/@ownedRepresentations[name='categorisationDesObjetsStrategiques']/@defaultLayer/@toolSections.0/@ownedTools[name='pasteStrategic']" semanticCandidatesExpression="&lt;%labels%>" domainClass="Tag" dropDescriptions="//@ownedViewpoints[name='application-extension-container']/@ownedRepresentations[name='categorisationDesObjetsApplicatifs']/@defaultLayer/@toolSections.0/@ownedTools[name='dropElement'] //@ownedViewpoints[name='strategic-extension-container']/@ownedRepresentations[name='categorisationDesObjetsStrategiques']/@defaultLayer/@toolSections.0/@ownedTools[name='dropElement']" listContainer="true">
               <subNodeMappings name="Elements" semanticCandidatesExpression="&lt;%taggedElements[eContainer().eClass().name == &quot;StrategicArchitecture&quot;]%>" domainClass="EObject">
                 <style xsi:type="style:LozengeNodeDescription" resizeKind="NSEW">
                   <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -3651,7 +3643,7 @@
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             </style>
           </subContainerMappings>
-          <subContainerMappings name="containerlabels" semanticCandidatesExpression="&lt;%labels%>" domainClass="Tag" dropDescriptions="//@ownedViewpoints[name='application-extension-container']/@ownedRepresentations[name='categorisationDesObjetsApplicatifs']/@defaultLayer/@toolSections.0/@ownedTools[name='dropElement'] //@ownedViewpoints[name='strategic-extension-container']/@ownedRepresentations[name='categorisationDesObjetsStrategiques']/@defaultLayer/@toolSections.0/@ownedTools[name='dropElement']" listContainer="true">
+          <subContainerMappings name="containerlabels" pasteDescriptions="//@ownedViewpoints[name='strategic-extension-container']/@ownedRepresentations[name='categorisationDesObjetsStrategiques']/@defaultLayer/@toolSections.0/@ownedTools[name='pasteStrategic']" semanticCandidatesExpression="&lt;%labels%>" domainClass="Tag" dropDescriptions="//@ownedViewpoints[name='application-extension-container']/@ownedRepresentations[name='categorisationDesObjetsApplicatifs']/@defaultLayer/@toolSections.0/@ownedTools[name='dropElement'] //@ownedViewpoints[name='strategic-extension-container']/@ownedRepresentations[name='categorisationDesObjetsStrategiques']/@defaultLayer/@toolSections.0/@ownedTools[name='dropElement']" listContainer="true">
             <subNodeMappings name="containerElements" semanticCandidatesExpression="&lt;%taggedElements[eContainer().eClass().name == &quot;StrategicArchitecture&quot;]%>" domainClass="EObject">
               <style xsi:type="style:LozengeNodeDescription" resizeKind="NSEW">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -3677,9 +3669,9 @@
             <newViewContainer name="newContainerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$oldSemanticContainer%>">
-                <subModelOperations xsi:type="tool:Unset" featureName="ownedElements" elementExpression="&lt;%$element%>"/>
+                <subModelOperations xsi:type="tool:Unset" featureName="taggedElements" elementExpression="&lt;%$element%>"/>
                 <subModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$newSemanticContainer%>">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="ownedElements" valueExpression="&lt;%$element%>"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="taggedElements" valueExpression="&lt;%$element%>"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -3691,6 +3683,17 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$container%>">
                 <subModelOperations xsi:type="tool:SetValue" featureName="taggedElements" valueExpression="&lt;%$element%>"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:PasteDescription" name="pasteStrategic" forceRefresh="true">
+            <container name="container"/>
+            <containerView name="containerView"/>
+            <copiedView name="copiedView"/>
+            <copiedElement name="copiedElement"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$container%>">
+                <subModelOperations xsi:type="tool:SetValue" featureName="taggedElements" valueExpression="&lt;%$copiedElement%>"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
